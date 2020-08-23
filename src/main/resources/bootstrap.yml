@@ -1,6 +1,8 @@
 spring:
   application:
     name: limits-service
+  zipkin:
+    base-url: http://localhost:9411/
   cloud:
     config:
       name: ${spring.application.name} #limits-service
@@ -15,3 +17,11 @@ eureka:
   client:
     service-url:
       default-zome: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
